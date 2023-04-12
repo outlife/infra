@@ -1,0 +1,11 @@
+[Unit]
+Description=OutLife Minecraft Server Backup
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h
+ExecStart=%h/backup.sh
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=OutLife Minecraft Server
+PartOf=outlife-master.service
+After=outlife-master.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=%h/OutLife
+ExecStart=/usr/bin/tmux new-session -d -s outlife ./Start.sh
+ExecStop=/usr/bin/tmux kill-session -t outlife
+
+[Install]
+WantedBy=default.target

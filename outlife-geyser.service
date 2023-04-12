@@ -1,0 +1,14 @@
+[Unit]
+Description=OutLife Minecraft Geyser
+PartOf=outlife-master.service
+After=outlife-master.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=%h/Geyser
+ExecStart=/usr/bin/tmux new-session -d -s geyser ./Start.sh
+ExecStop=/usr/bin/tmux kill-session -t geyser
+
+[Install]
+WantedBy=default.target

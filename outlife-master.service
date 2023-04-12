@@ -1,0 +1,12 @@
+# From: https://superuser.com/questions/1581577/running-two-tmux-sessions-as-systemd-service
+[Unit]
+Description=OutLife Minecraft Master
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/tmux new-session -s master -d
+ExecStop=/usr/bin/tmux kill-session -t master
+
+[Install]
+WantedBy=default.target
